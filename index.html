@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Uttar Pradesh Fire & Emergency Services - Operations Dashboard</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.css"/>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-image">
+        <img src="fire.jpg" alt="UP Seal"/>
+    </div>
+    <h1>
+        UTTAR PRADESH FIRE & EMERGENCY SERVICES | RESPONSE ROUTING
+    </h1>
+</header>
+
+<div class="app-container">
+    <div class="sidebar-controls">
+        
+        <div class="control-block" id="route-planner-block">
+            <h3>Route Planner</h3>
+            <div class="route-input-group">
+                <div class="route-input" id="start-input">
+                    <span class="placeholder">Click map to set start point...</span>
+                </div>
+                <div class="route-input" id="end-input">
+                    <span class="placeholder">Click map to set end point...</span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="calculate-route">Calculate Optimal Route</button>
+                <button id="clear-points" class="secondary">Clear All</button>
+            </div>
+        </div>
+        
+        <div id="route-info" style="display:none">
+            <div class="eta-display" id="eta-display">ETA: -- Min</div>
+            <div id="route-summary">Awaiting route calculation...</div>
+            <button id="simulate-traffic">Simulate Traffic Conditions</button>
+        </div>
+
+        <div class="control-block" id="conditions-management-block">
+            <h3>Conditions & Management</h3>
+            
+            <div class="form-group">
+                <strong>Emergency Priority</strong>
+                <div class="emergency-type">
+                    <div class="emergency-option" data-type="high">HIGH</div>
+                    <div class="emergency-option" data-type="medium">MEDIUM</div>
+                    <div class="emergency-option" data-type="low">LOW</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <strong>Road Obstruction Tools</strong>
+                <button id="block-road-mode">Enable Road Block Mode</button>
+            </div>
+            
+            <div id="blocked-roads-list-container" class="form-group">
+                <div id="blocked-roads-list" style="display:none;"></div>
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div id="map-container">
+        <div id="map"></div> 
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>

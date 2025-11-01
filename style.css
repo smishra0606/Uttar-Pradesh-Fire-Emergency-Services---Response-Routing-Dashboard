@@ -1,0 +1,337 @@
+/* FONT IMPORT: Merriweather + Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif; /* Default font is Open Sans */
+    font-weight: 400;
+    overflow: hidden; /* No scroll on body */
+    background: #1a1a1a; 
+    color: #e0e0e0; 
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #5d5d5d, #dd3927);
+    color: #ff7300;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+}
+
+.logo-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    padding: 3px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* APP CONTAINER */
+.app-container {
+    display: flex;
+    height: calc(100vh - 78px);
+    background: #2a2a2a;
+}
+
+/* SIDEBAR: NO SCROLL */
+.sidebar-controls {
+    flex: 0 0 380px;
+    background: #222222;
+    padding: 1.2rem;
+    overflow-y: auto; /* Main scrollbar removed */
+    border-right: 1px solid #444;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#map-container {
+    flex: 1;
+    height: 100%;
+    background: #111;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+/* CONTROL BLOCKS */
+.control-block {
+    background: #333333;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    margin-bottom: 1.2rem;
+    border: 1px solid #555;
+}
+
+.control-block h3 {
+    font-family: 'Merriweather', serif;
+    margin-top: 0;
+    color: #f39c12;
+    border-bottom: 2px solid #555;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem; 
+    letter-spacing: 0.03em;
+}
+
+/* ROUTE INPUTS */
+.route-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.route-input {
+    padding: 0.75rem;
+    border: 1px solid #666;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s;
+    background: #444;
+    color: #e0e0e0;
+}
+.route-input.active {
+    border-color: #3498db;
+    background: #3a4a5a;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+}
+.route-input .placeholder { color: #aaaaaa; }
+.route-input .value { font-weight: 600; color: #ffffff; }
+
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+button {
+    font-family: 'Merriweather', serif;
+    background: #3498db;
+    color: #fff;
+    border: 0;
+    padding: 0.7rem 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.1s;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-grow: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+button:hover { background: #2980b9; transform: translateY(-1px); }
+button:disabled { background: #555; cursor: not-allowed; box-shadow: none; }
+button.secondary { background: #555; }
+button.secondary:hover { background: #666; }
+button.danger { background: #e74c3c; }
+button.danger:hover { background: #c0392b; }
+
+/* ROUTE INFO BLOCK */
+#route-info {
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    color: #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.eta-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2ecc71;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+#route-summary p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+#simulate-traffic {
+    margin-top: 1rem;
+    background: #f39c12;
+    font-weight: 700;
+    width: 100%;
+}
+#simulate-traffic:hover { background: #e67e22; }
+
+/* CONDITIONS BLOCK: EVEN GAPS */
+#conditions-management-block {
+    flex-grow: 1; /* This block will fill remaining space */
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important for flex child */
+}
+
+.form-group {
+    margin-bottom: 1.2rem; /* This sets the standard gap */
+}
+
+#conditions-management-block > strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.emergency-type {
+    display: flex;
+    gap: 0.5rem;
+}
+.emergency-option {
+    font-family: 'Merriweather', serif;
+    flex: 1;
+    padding: 0.7rem 0.5rem;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #444;
+    color: #e0e0e0;
+}
+.emergency-option[data-type="high"] { border-color: #e74c3c; }
+.emergency-option[data-type="medium"] { border-color: #f39c12; }
+.emergency-option[data-type="low"] { border-color: #2ecc71; }
+.emergency-option.selected { transform: scale(1.05); }
+.emergency-option.selected[data-type="high"] { background: #c0392b; color: #fff; }
+.emergency-option.selected[data-type="medium"] { background: #e67e22; color: #fff; }
+.emergency-option.selected[data-type="low"] { background: #27ae60; color: #fff; }
+
+#block-road-mode {
+    width: 100%;
+    background: #666;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+#block-road-mode.active {
+    background: #e74c3c;
+    animation: pulse-red 1.2s infinite ease-out;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+#blocked-roads-list-container {
+    flex-grow: 1; /* Fills remaining space */
+    min-height: 0; /* Important for flex child */
+    display: flex;
+    flex-direction: column;
+}
+
+#blocked-roads-list {
+    /* This no longer needs margin-top as its parent .form-group has margin-bottom */
+    border-top: 1px solid #555;
+    padding-top: 1rem;
+    flex-grow: 1; /* Fills space */
+    min-height: 0; /* Important for flex child */
+}
+
+#blocked-roads-list ul { 
+    padding-left: 0; 
+    margin: 0; 
+    height: 100%; /* Fills parent */
+    overflow-y: auto; /* SCROLLBAR MOVED HERE */
+    background: #3a3a3a;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    list-style: none; /* Removed bullet points */
+}
+#blocked-roads-list li { 
+    font-size: 0.9rem; 
+    margin-bottom: 0.5rem; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    color: #b0b0b0;
+}
+#blocked-roads-list li:last-child { margin-bottom: 0; }
+#blocked-roads-list button { 
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem; 
+    margin-left: 0.7rem;
+    flex-grow: 0; 
+    border-radius: 4px;
+}
+#blocked-roads-list p {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+/* Custom Leaflet markers */
+.start-marker div, .end-marker div, .road-block-marker div, .traffic-marker div {
+    border: 3px solid #fff !important;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .sidebar-controls {
+        flex: 0 0 320px;
+    }
+}
+@media (max-width: 768px) {
+    header { padding: 0.6rem 1rem; }
+    header h1 { font-size: 1.3rem; }
+    .logo-image img { width: 40px; height: 40px; }
+    
+    .app-container {
+        flex-direction: column;
+        height: calc(100vh - 67px); 
+    }
+    .sidebar-controls {
+        flex: 0 0 auto; 
+        height: 50%; /* Adjusted height */
+        border-right: none;
+        border-bottom: 1px solid #444;
+        padding: 1rem;
+    }
+    #map-container {
+        height: 50%; /* Adjusted height */
+    }
+    .control-block { margin-bottom: 1rem; padding: 1rem; }
+    .control-block h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .route-input-group { gap: 0.75rem; margin-bottom: 1rem; }
+    .route-input { padding: 0.7rem; }
+    button { padding: 0.7rem 1rem; font-size: 0.9rem; }
+    .eta-display { font-size: 1.8rem; margin-bottom: 0.7rem; }
+    .emergency-option { padding: 0.7rem 0.4rem; font-size: 0.85rem; }
+    #blocked-roads-list ul { max-height: 80px; padding: 0.6rem 1rem; }
+}
