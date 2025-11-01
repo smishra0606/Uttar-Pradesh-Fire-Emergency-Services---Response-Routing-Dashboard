@@ -1,6 +1,6 @@
 # Uttar Pradesh Fire & Emergency Services - Response Routing Dashboard
 
-![Project Banner - UP Fire Dashboard](https://i.imgur.com/83uE3oR.png)
+![Project Banner - UP Fire Dashboard](fire.jpg)
 
 A high-performance, interactive dashboard for the Uttar Pradesh Fire & Emergency Services, designed to assist dispatchers in **planning optimal routes** for emergency vehicles. This tool provides real-time routing, simulates dynamic road conditions, and manages emergency priorities, all within a responsive, dark-mode interface.
 
